@@ -4,6 +4,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `yarn server:dev`
+
+To start backend in development mode
+
+### `yarn server:start`
+
+To start backend in production mode
+
 ### `yarn start`
 
 Runs the app in the development mode.<br />
