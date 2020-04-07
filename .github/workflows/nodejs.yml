@@ -1,0 +1,25 @@
+name: Science News Scraper CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    
+    - name: Beanstalk Deploy
+      uses: einaregilsson/beanstalk-deploy@v4
+      with:
+        aws_access_key: 
+        aws_secret_key: 
+        region: 
+        application_name: 
+        environment_name: 
+        version_label: 
+        deployment_package:
