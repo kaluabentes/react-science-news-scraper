@@ -1,4 +1,4 @@
-const ScrapperService = require("../services/ScrapperService");
+const ScraperService = require("../services/ScraperService");
 
 module.exports = {
   async index(req, res) {
@@ -10,7 +10,7 @@ module.exports = {
       });
     }
 
-    const posts = await ScrapperService.fetchPosts(category);
+    const posts = await ScraperService.fetchPosts(category);
     res.send(posts);
   },
 };

@@ -1,8 +1,8 @@
-const ScrapperService = require("../services/ScrapperService");
+const ScraperService = require("../services/ScraperService");
 
 module.exports = {
   async index(req, res) {
-    const categories = await ScrapperService.fetchCategories();
+    const categories = await ScraperService.fetchCategories();
     res.send(categories);
   },
 };
