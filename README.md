@@ -2,6 +2,8 @@
 
 A basic web scraper built for fetch posts data from [sciencenews.org](https://sciencenews.org)
 
+[Live demo](http://sciencenewsscraper.sa-east-1.elasticbeanstalk.com/)
+
 ## Running
 
 - `$ yarn` to install dependencies.
