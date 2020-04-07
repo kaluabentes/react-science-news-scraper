@@ -6,7 +6,6 @@ import {
   TableBody,
   TableCell,
   TableContainer,
-  TableHead,
   TableRow,
   Paper,
   Typography,
@@ -38,7 +37,7 @@ export default function PostsTable({ posts, isLoading }) {
             {posts.map((post) => (
               <TableRow>
                 <TableCell>
-                  <a href={post.url} target="_blank" rel="noopender noreferrer">
+                  <a href={post.url} target="_blank" rel="noopener noreferrer">
                     <Typography>{post.title}</Typography>
                   </a>
                 </TableCell>

@@ -27,7 +27,7 @@ export default function App() {
   useEffect(() => {
     fetchCategories();
     fetchPosts();
-  }, []);
+  }, [fetchPosts, fetchCategories]);
 
   const fetchCategories = async () => {
     setCategoriesLoading(true);
