@@ -15,10 +15,12 @@ module.exports = {
     const categoriesElements = $(".dropdown-all-topics__heading___2OsMw");
     const subCategoriesElements = $(".dropdown-all-topics__link___rLNTU");
 
+    const extractAlias = (url) => url.split("/").pop();
+
     const handleEach = (index, element) => {
       categories.push({
         name: clearString($(element).text()),
-        url: $(element).attr("href"),
+        alias: extractAlias($(element).attr("href")),
       });
     };
 
@@ -34,7 +36,7 @@ module.exports = {
     const posts = [];
     const urlPrefix = `${baseURL}/article`;
 
-    const postsElements = $(`a[href^="${urlPrefix}"]`);
+    const postsElements = $(`#content a[href^="${urlPrefix}"]`);
 
     postsElements.each((index, element) => {
       posts.push({
@@ -43,6 +45,6 @@ module.exports = {
       });
     });
 
-    return posts;
+    return posts.filter((post) => post.title.length > 0);
   },
 };

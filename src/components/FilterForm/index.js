@@ -13,7 +13,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import styles from "./styles.module.css";
 
 const PROP_TYPES = {
-  categories: PropTypes.arrayOf(PropTypes.string),
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      alias: PropTypes.string,
+    })
+  ),
   value: PropTypes.string,
   onSubmit: PropTypes.func,
   onChange: PropTypes.func,
@@ -58,8 +63,8 @@ export default function FilterForm({
               onChange={onChange}
             >
               {categories.map((category) => (
-                <MenuItem key={category} value={category}>
-                  {category}
+                <MenuItem key={category.alias} value={category.alias}>
+                  {category.name}
                 </MenuItem>
               ))}
             </Select>

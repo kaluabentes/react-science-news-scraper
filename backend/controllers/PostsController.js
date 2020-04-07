@@ -2,7 +2,7 @@ const ScrapperService = require("../services/ScrapperService");
 
 module.exports = {
   async index(req, res) {
-    const { category } = req.body;
+    const { category } = req.query;
 
     if (!category) {
       return res.status(400).send({
