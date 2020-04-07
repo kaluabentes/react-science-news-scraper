@@ -4,6 +4,8 @@ const cheerio = require("cheerio");
 const baseURL = "https://www.sciencenews.org";
 const httpClient = axios.create({ baseURL });
 
+const clearString = (string) => string.replace(/[\n\t]/g, "");
+
 module.exports = {
   async fetchCategories() {
     const response = await httpClient.get("/");
@@ -12,8 +14,6 @@ module.exports = {
 
     const categoriesElements = $(".dropdown-all-topics__heading___2OsMw");
     const subCategoriesElements = $(".dropdown-all-topics__link___rLNTU");
-
-    const clearString = (string) => string.replace(/[^a-zA-Z]/g, "");
 
     const handleEach = (index, element) => {
       categories.push({
@@ -28,5 +28,21 @@ module.exports = {
     return categories;
   },
 
-  fetchPosts(category) {},
+  async fetchPosts(category) {
+    const response = await httpClient.get(`/topic/${category}`);
+    const $ = cheerio.load(response.data);
+    const posts = [];
+    const urlPrefix = `${baseURL}/article`;
+
+    const postsElements = $(`a[href^="${urlPrefix}"]`);
+
+    postsElements.each((index, element) => {
+      posts.push({
+        title: clearString($(element).text()),
+        url: $(element).attr("href"),
+      });
+    });
+
+    return posts;
+  },
 };
