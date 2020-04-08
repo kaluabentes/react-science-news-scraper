@@ -34,6 +34,8 @@ jobs:
 
       - name: Building application
         run: npm run build
+        env:
+          REACT_APP_API_URL: http://sciencenewsscraper.sa-east-1.elasticbeanstalk.com/api
 
       - name: Generate deployment package
         run: zip -r deploy.zip * -x "**node_modules**"
