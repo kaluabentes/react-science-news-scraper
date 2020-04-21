@@ -1,6 +1,6 @@
-# Science News Scraper
+# React Science News Scraper
 
-A basic web scraper built for fetch posts data from [sciencenews.org](https://sciencenews.org)
+A basic web scraper built for fetch posts data from [sciencenews.org](https://sciencenews.org) with a React frontend.
 
 [Live demo](http://sciencenewsscraper.sa-east-1.elasticbeanstalk.com/)
 
